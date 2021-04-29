@@ -13,7 +13,7 @@ io.on('connection', client => {
         console.log('Mensaje', payload);
 
         io.broadcast.emit('mensaje', payload);
-
+ 
     });
 
 });
