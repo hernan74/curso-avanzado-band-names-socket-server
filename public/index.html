@@ -24,6 +24,10 @@
         cliente.on('mensaje', function (payload) {
             console.log('Escuchando: ', payload);
         });
+        cliente.on('active-bands', function (bands) {
+            console.clear();
+            console.table(bands);
+        });
     </script>
 </body>
 
