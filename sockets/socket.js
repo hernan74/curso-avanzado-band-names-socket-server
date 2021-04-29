@@ -12,7 +12,7 @@ io.on('connection', client => {
     client.on('mensaje', (payload) => {
         console.log('Mensaje', payload);
 
-        io.broadcast.emit('mensaje', payload);
+        io.emit('mensaje', payload);
  
     });
 
