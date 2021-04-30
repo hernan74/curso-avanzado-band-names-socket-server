@@ -1,32 +1,41 @@
 const Band = require("./band");
 
-class Bans {
+
+class Bands {
+
     constructor() {
-        this.bans = [];
+        this.bands = [];
     }
 
-    addBand(band = new Band()) {
-        this.bans.push(band);
+    addBand( band = new Band() ) {
+        this.bands.push( band );
     }
 
-    getBans() {
-        return this.bans;
-    }
-    deleteBand(id = '') {
-        this.bans = this.bans.filter(b => b.id !== id);
-        return this.bans;
+    getBands() {
+        return this.bands;
     }
 
-    voteBand(id = '') {
-        this.bans = this.bans.map(banda => {
-            if (banda.id === id) {
-                banda.votes++;
+    deleteBand( id = '' ) {
+        this.bands = this.bands.filter( band => band.id !== id );
+        return this.bands;
+    }
+
+    voteBand( id = '' ) {
+
+        this.bands = this.bands.map( band => {
+
+            if ( band.id === id ) {
+                band.votes++;
                 return band;
             } else {
-                return banda;
+                return band;
             }
+
         });
+
     }
+
 }
 
-module.exports = Bans;
+
+module.exports = Bands;
