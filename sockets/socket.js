@@ -18,11 +18,16 @@ io.on('connection', client => {
         console.log('Cliente desconectado');
     });
 
-    client.on('mensaje', (payload) => {
-        console.log('Mensaje', payload);
-
-        io.emit('mensaje', payload);
-
+    client.on('vote-bands', (payload) => {
+        bands.voteBand(payload.id);
+        io.emit('active-bands', bands.getBans());
     });
+
+    //  client.on('mensaje', (payload) => {
+    //      console.log('Mensaje', payload);
+    //
+    //      io.emit('mensaje', payload);
+    //
+    //  });
 
 });
